@@ -1,7 +1,8 @@
-<?php
+﻿<?php
 class Core
 {
-	function PageBody($page)
+	var $pb;
+	function Page($page)
 	{
 		switch($page)
 		{
@@ -14,6 +15,9 @@ class Core
 			case "list_Project":
 			break;
 			default:
+			$this->pb->New_Page('Меню');
+			$this->pb->Add_Resourse('css','style/style.css');
+			$this->pb->Show();
 			break;
 		}
 	}
