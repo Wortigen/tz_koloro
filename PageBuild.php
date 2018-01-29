@@ -2,12 +2,12 @@
 class PageBuild
 {
 	private $Start_page = "";
-	private $Page_Resourse = new array();
+	private $Page_Resourse = array();
 	private $title = "";
-	private $Page_Body = new array();
-	private $Add_script = new array();
+	private $Page_Body = array();
+	private $Add_script = array();
 	private $End_page = "";
-	function New_Page($name)
+	function create_Page($name)
 	{
 		$this->Start_page = "<!DOCTYPE html><html lang='ru'><head><meta charset='utf-8' />";
 		$this->title = "<title>".$name."</title>";
@@ -15,7 +15,7 @@ class PageBuild
 		$this->End_page = "</body></html>";
 	}
 	
-	function Add_Resourse($name,$path)
+	function Add_Resourse($name, $path)
 	{
 		$count = count($this->Page_Resourse);
 		switch($name)
@@ -33,7 +33,7 @@ class PageBuild
 				$this->Page_Resourse[$count++] = "<script type='text/javascript' src='".$path."'  ></script>";;
 			break;
 			case "ico":
-				$this->Page_Resourse[$count++] = "<link rel='shortcut icon' href='"$path"' type='image/ico'>";
+				$this->Page_Resourse[$count++] = "<link rel='shortcut icon' href='".$path."' type='image/ico'>";
 			break;
 		}
 	}
