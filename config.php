@@ -29,19 +29,22 @@ class core
 		switch($this->title)
 		{
 			case 'Manager':
-				//$this->title = $page;
+				require_once('class_manager.php');
+				$this->content = new Manager;
+				$this->content->form($this->title);
+				$this->content->list_manager();
 			break;
 			case 'Project':
-				//$this->title = $page;
+				require_once('default.php');
 			break;
 			case 'list_Manager':
-				//$this->title = $page;
+				require_once('default.php');
 			break;
 			case 'list_Project':
-				//$this->title = $page;
+				require_once('default.php');
 			break;
 			default:
-				include('default.php');
+				require_once('default.php');
 			break;
 		}
 	}
@@ -61,4 +64,6 @@ $site = new core($_GET['page']);
 	</head>	
 	<body>
 	 <? $site->content(); ?>
+	 
+
 <? require_once('footer.php'); ?>

@@ -66,3 +66,66 @@ a{text-decoration:none;}
 	position:relative;
 	top: 10px;
 }
+
+/*////////////////// Meneger Page /////////////////////////*/
+.right_column
+{
+	position:absolute;
+	display:block;
+	width:250px;
+	height:300px;
+	right:0px;
+	top:20px;
+}
+.end_line{
+	left:60px;
+	top:10px;
+	display:block;
+	position:relative;
+	width:100%;
+}
+
+.form_line{
+	position:relative;
+	display:block;
+	left:20px;
+}
+
+#form{
+	position:relative;
+	display:block;
+	top:30px;
+}
+
+.left_column{
+	position:absolute;
+	display:block;
+	width:250px;
+	overflow:hidden;
+	height:300px;
+	left:0px;
+	top:20px;
+}
+
+.header_column{
+	position:relative;
+	width:100%;
+	font-size:24px;
+	font-weight:bold;
+}
+
+/*//////////////////// button back///////////////////////*/
+.btn{
+	position:fixed;
+	display:block;
+	color:#fff;
+	background:#04B404;
+	width:75px;
+	left: 15px;
+	bottom:5px;
+}
+
+.btn:hover{
+	background:#F4E416;
+	color:#000;
+}
