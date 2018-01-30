@@ -1,1 +1,1 @@
-<? echo 'footer'; ?></body></html>
+<? echo 'footer';?></body></html>
