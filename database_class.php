@@ -1,29 +1,36 @@
-<?
+﻿<?
 class Database{
 	
-	private $con
+	private $con = '';
 	public function __construct()
 	{
-		$this->con = mysql_connect("localhost", "rcygcqrd_Worti", "eAeu*1cc#b%I");
-		mysql_select_db("rcygcqrd_MetalColor",$con);
+		$this->con = mysqli_connect("localhost", "rcygcqrd_Worti", "eAeu*1cc#b%I", "rcygcqrd_MetalColor");
+		//mysql_select_db("rcygcqrd_MetalColor", $this->$con);
+		if(!$this->con)
+		{echo "нет соединения";}
+		echo mysqli_connect_error();
 	}
 	
 	public function add_manager($name,$email,$phone,$comp,$img)
 	{
 		$result = false;
-		$qvery = "SELECT * FROM `Manager` ";
-		$result = mysql_query($qvery);
-		$new_id = mysql_num_rows($result);
-		$new_id++;
-		$qvery = "INSERT INTO `Manager`(`id`, `name`, `email`, `phone`, `company`)";
-		$qvery = $qvery." VALUES ('".$new_id."','".$name."','".$email."','".$phone."','".$comp.")";
-		$result = mysql_query($qvery);
+		$qvery = "SELECT * FROM Manager";
+		$result = mysqli_query($this->con, $qvery); //$result = mysql_query($qvery);
+		echo mysqli_error($this->con);
+
+		$new_id = mysqli_num_rows($result);
+		$new_id++; 
+		echo $new_id.":";
+		$qvery1 = 'insert into `Manager` ( `id`, `name`, `email`, `phone`, `company`, `photo`) values ( "'.$new_id.'", "'.$name.'", "'.$email.'", "'.$phone.'", "'.$comp.'", "") ';
+		$result = mysqli_query($this->con, $qvery1);
+		echo mysqli_error($this->con);
+
 		
 	}
 	
 	public function off_sql()
 	{
-		 mysql_close($this->con);
+		 mysqli_close($this->con);
 	}
 }
 ?>
