@@ -26,19 +26,19 @@ class core
 	
 	public function content()
 	{
-		switch($titel)
+		switch($this->title)
 		{
 			case 'Manager':
-				$this->title = $page;
+				//$this->title = $page;
 			break;
 			case 'Project':
-				$this->title = $page;
+				//$this->title = $page;
 			break;
 			case 'list_Manager':
-				$this->title = $page;
+				//$this->title = $page;
 			break;
 			case 'list_Project':
-				$this->title = $page;
+				//$this->title = $page;
 			break;
 			default:
 				include('default.php');
@@ -51,7 +51,7 @@ class core
 <head>
 <?php
 
-$site = new core($_Get['page']);
+$site = new core($_GET['page']);
 
 ?>
 <title><?php echo $site->title; ?></title>

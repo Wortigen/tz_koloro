@@ -1,1 +1,1 @@
-<? echo 'footer';?></body></html>
+<div class="footer"><div> <? echo 'footer';?></div> </div></body></html>
