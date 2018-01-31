@@ -46,10 +46,10 @@ class core
 				$this->content->list_project($this->title);
 			break;
 			case 'list_Manager':
-				require_once('default.php');
+				require_once('list_manager.php');
 			break;
 			case 'list_Project':
-				require_once('default.php');
+				require_once('list_project.php');
 			break;
 			default:
 				require_once('default.php');
