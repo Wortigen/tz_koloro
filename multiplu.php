@@ -54,5 +54,5 @@
 				break;
 		}
 	}
-	//header("Location: http://metalcolors.com.ua/config.php?page=Project&idm=".$_GET['id']);
+	header("Location: http://metalcolors.com.ua/config.php?page=Project&idm=".$_GET['id']);
 ?>

@@ -191,3 +191,21 @@ a{text-decoration:none;}
 	top:5px;
 	left:10px;
 }
+
+/*////////////////// Multi page /////////////////////////////////*/
+#multi_data
+{
+	position:absolute;
+	display:inline-block;
+	left:300px;
+	top:30px;
+	background:#04B404;
+}
+
+.list_p{
+	width:150px;
+	position:relative;
+	display:block;
+	height:150px;
+	Left:200px;
+}

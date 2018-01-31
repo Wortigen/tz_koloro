@@ -153,6 +153,48 @@ class Database{
 		echo mysqli_error($this->con);	
 	}
 	
+	// multiply page
+	public function get_item_propery($id)
+	{
+		$result = false;
+		$qvery = 'SELECT `id`, `name`, `email`, `phone`, `company`, `photo` FROM `Manager` WHERE `id` ='.$id;
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		return $result;
+	}
+	
+	public function get_projects($idp)
+	{
+		$qvery = 'SELECT `id`, `name`, `price`, `datestart`, `dateend` FROM `Projects` WHERE `idmanag` ='.$idp;
+		$result2 = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		$res = array();$temp = 0;
+		while($r = mysqli_fetch_row($result2))
+		{
+				$res[$temp] = $r[1].";".$r[2].";".$r[3].";".$r[4];
+				$temp++;
+		}		
+		return $res;
+	}
+	
+	public function get_item_project($id)
+	{
+		$result = false;
+		$qvery = "SELECT `id_project` FROM `manproj` WHERE `id_manager` =".$id;
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		/*$tmp = 0;
+		while($res = mysqli_fetch_row($result))
+		{
+				$temp = $res[0];		
+		}
+		$qvery = 'SELECT `id`, `name`, `price`, `datestart`, `dateend` FROM `Projects` WHERE `idmanag` ="'.$tmp.'"';
+		$result2 = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		*/
+		return $result;
+	}
+	
 	//end class
 	public function off_sql()
 	{
