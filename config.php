@@ -37,6 +37,7 @@ class core
 				if($_GET['idm'] != '')
 				{
 					$this->content->show_manager($_GET['idm']);
+					$this->content->photo_setting($_GET['idm']);
 				}
 			break;
 			case 'Project':
@@ -44,6 +45,11 @@ class core
 				$this->content = new Project;
 				$this->content->form($this->title);
 				$this->content->list_project($this->title);
+				if($_GET['idm'] != '')
+				{
+					$this->content->show_project($_GET['idm']);
+					$this->content->work_managers($_GET['idm']);
+				}
 			break;
 			case 'list_Manager':
 				require_once('list_manager.php');

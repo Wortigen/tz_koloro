@@ -96,6 +96,11 @@ class Manager
 		<?
 	}
 	
+	public function photo_setting($idm)
+	{
+		
+	}
+	
 	public function show_manager($manager)
 	{
 		$managers = $this->db->get_manager($manager);

@@ -174,3 +174,20 @@ a{text-decoration:none;}
 	background:#F4E416;
 	color:#000;
 }
+
+/*//////////////////// Project page //////////////////////////////*/
+.worker{
+	width:300px;
+	overflow:hidden;
+	position:absolute;
+	right:350px;
+	top:50px;
+	background:#04B404;
+}
+
+.list{
+	position:relative;
+	display:inline-block;
+	top:5px;
+	left:10px;
+}
