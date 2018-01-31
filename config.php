@@ -2,6 +2,7 @@
 class core
 {
 	public $title = '';
+	private $content ='';
 	public function __construct($page)
 	{
 		switch($page)
@@ -39,7 +40,10 @@ class core
 				}
 			break;
 			case 'Project':
-				require_once('default.php');
+				require_once('class_project.php');
+				$this->content = new Project;
+				$this->content->form($this->title);
+				$this->content->list_project($this->title);
 			break;
 			case 'list_Manager':
 				require_once('default.php');

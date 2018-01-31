@@ -59,6 +59,33 @@ class Database{
 		return $result;
 	}
 	//project function
+	public function add_project($name,$price,$start,$end)
+	{
+		$result = false;
+		$qvery = "SELECT * FROM `Projects`";
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);		
+		$new_id = mysqli_num_rows($result);
+		$new_id++;
+		$qvery = "SELECT * FROM `manproj`";
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		$idp = mysqli_num_rows($result);
+		$qvery = 'insert into `Projects` (`id`, `name`, `price`, `idmanag`, `datestart`, `dateend`) values ( "'.$new_id.'", "'.$name.'", "'.$price.'", "'.$idp.'", "'.$start.'", "'.$end.'") ';
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);	
+	}
+	
+	public function project_list()
+	{
+		$result = false;
+		$qvery = "SELECT `id`, `name`, `price`, `idmanag`, `datestart`, `dateend` FROM `Projects`";
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		return $result;
+	}
+	
+	//end class
 	public function off_sql()
 	{
 		 mysqli_close($this->con);
