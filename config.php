@@ -32,7 +32,11 @@ class core
 				require_once('class_manager.php');
 				$this->content = new Manager;
 				$this->content->form($this->title);
-				$this->content->list_manager();
+				$this->content->list_manager($this->title);
+				if($_GET['idm'] != '')
+				{
+					$this->content->show_manager($_GET['idm']);
+				}
 			break;
 			case 'Project':
 				require_once('default.php');
