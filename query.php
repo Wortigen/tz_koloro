@@ -27,7 +27,9 @@
 	}
 	$db->off_sql();
 	if($_GET['id'] == '')
+	{
 		header("Location: http://metalcolors.com.ua/config.php?page=".$_GET['page']);
+	}
 	else
 		header("Location: http://metalcolors.com.ua/config.php?page=".$_GET['page']."&idm=".$_GET['id']);
 ?>

@@ -198,6 +198,7 @@ a{text-decoration:none;}
 	position:absolute;
 	display:inline-block;
 	left:300px;
+	overflow:hidden;
 	top:30px;
 	background:#04B404;
 }
@@ -205,6 +206,23 @@ a{text-decoration:none;}
 .list_p{
 	width:150px;
 	position:relative;
+	padding-top:5px;
+	display:block;
+	height:250px;
+}
+.list_m{
+	width:150px;
+	position:relative;
+	padding-top:5px;
 	display:block;
 	height:150px;
+}
+.help{
+	position:fixed;
+	display:block;
+	right:10px;
+	width:100px;
+	height:150px; 
+	bottom:70px;
+	background:#04B404;
 }

@@ -178,6 +178,15 @@ class Project
 		<?
 	}
 	
+	public function help()
+	{
+		?><div class="help">
+		Примечание:
+		Менеджера поставить на проэкт можно после добавления самого проэкта.
+		</div>
+		<?
+	}
+	
 	public function scrits()
 	{
 		

@@ -15,8 +15,6 @@
 <? $projects = $db->get_item_project_m($_GET['idm']);
 	while($row = mysqli_fetch_row($projects))
 	{
-		
-	
 	$param = $db->get_projects_m($row[0]);
 	for($i = 0; $i < count($param);$i++)
 	{
@@ -30,7 +28,8 @@
 				<? if(trim($p[4]) == ''){ ?>
 					<img width="150px" height="150px" src="photo/default.jpg" />
 				<? }}?>
+			<hr width="100%" style="color:#fff" />
 			</div>
-			<hr width="100%" style="color:#fff" /><?
+			<?
 	}
 	}?>

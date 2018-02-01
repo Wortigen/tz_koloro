@@ -151,6 +151,15 @@ class Manager
 		<?
 	}
 	
+	public function help()
+	{
+		?><div class="help">
+		Примечание:
+		Фото менеджера можно поставить в редактирование менеджера.
+		</div>
+		<?
+	}
+	
 	public function scrits()
 	{
 		

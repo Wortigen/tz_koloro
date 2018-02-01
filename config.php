@@ -39,6 +39,7 @@ class core
 					$this->content->show_manager($_GET['idm']);
 					$this->content->photo_setting($_GET['idm']);
 				}
+				$this->content->help();
 			break;
 			case 'Project':
 				require_once('class_project.php');
@@ -50,6 +51,7 @@ class core
 					$this->content->show_project($_GET['idm']);
 					$this->content->work_managers($_GET['idm']);
 				}
+				$this->content->help();
 			break;
 			case 'list_Manager':
 				require_once('list_manager.php');

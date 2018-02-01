@@ -21,7 +21,7 @@ class Database{
 		$new_id++; 
 		$qvery = 'insert into `Manager` ( `id`, `name`, `email`, `phone`, `company`, `photo`) values ( "'.$new_id.'", "'.$name.'", "'.$email.'", "'.$phone.'", "'.$comp.'", " ") ';
 		$result = mysqli_query($this->con, $qvery);
-		echo mysqli_error($this->con);	
+		echo mysqli_error($this->con);
 	}
 	
 	public function get_manager($id_manager)
@@ -70,7 +70,7 @@ class Database{
 		$qvery = "SELECT * FROM `manproj`";
 		$result = mysqli_query($this->con, $qvery);
 		echo mysqli_error($this->con);
-		$idp = 0;
+		$idp = $new_id;
 		$qvery = 'insert into `Projects` (`id`, `name`, `price`, `idmanag`, `datestart`, `dateend`) values ( "'.$new_id.'", "'.$name.'", "'.$price.'", "'.$idp.'", "'.$start.'", "'.$end.'") ';
 		$result = mysqli_query($this->con, $qvery);
 		echo mysqli_error($this->con);	
@@ -173,7 +173,7 @@ class Database{
 		{
 				$res[$temp] = $r[1].";".$r[2].";".$r[3].";".$r[4];
 				$temp++;
-		}		
+		}
 		return $res;
 	}
 	
