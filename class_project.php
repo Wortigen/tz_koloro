@@ -13,14 +13,14 @@ class Project
 	{
 		?>
 		<div class="right_column">
-		<div class="header_column"> Новый проэкт </div>
+		<div class="header_column"> Новый проект </div>
 		<form id="form" enctype="multipart/form-data" action="query.php">
 			<div class="form_line">
 				<div class="form_name">
 					Название:
 				</div>
 				<div>
-				<input type="text" name='name' width="250px;" />
+				<input type="text" name='name' width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -28,7 +28,7 @@ class Project
 					цена:
 				</div>
 				<div>
-				<input type="text" name="price" width="250px;" />
+				<input type="text" name="price" placeholder="$$$$$.$$" pattern="\d+(\.\d{2})?" width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -36,7 +36,7 @@ class Project
 					Начало:
 				</div>
 				<div>
-				<input type="text" name="start" width="250px;" />
+				<input type="text" id="s" name="start" onchange="check()" placeholder="dd.mm.yyyy" required pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -44,7 +44,7 @@ class Project
 					Окончание:
 				</div>
 				<div>
-				<input type="text" name="finale" width="250px;" />
+				<input type="text" name="finale" id="e" onchange="check()" placeholder="dd.mm.yyyy" required pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" width="250px;" required />
 				</div>
 			</div>
 			<div class="end_line">
@@ -60,7 +60,7 @@ class Project
 	{
 		?>
 		<div class="left_column">
-		<div class="header_column"> Список проэктов </div>
+		<div class="header_column"> Список проектов </div>
 		<div class="list_conteiner">
 		<? $project = $this->db->project_list();?>
 		<?			
@@ -94,7 +94,7 @@ class Project
 		$row = mysqli_fetch_row($project);
 		?>
 		<div class="content">
-		<div class="header_column"> Редактирование проэкта </div>
+		<div class="header_column"> Редактирование проекта </div>
 		<form id="form" enctype="multipart/form-data" action="query.php">
 			<div class="form_line">
 				<div class="form_name">
@@ -155,23 +155,24 @@ class Project
 			<? echo $row[1]."\t".$row[2].":"; ?>
 			<select width="150px;" name="<? echo "ch".$row[0]; ?>" >
 				<? if(count($in_work) == 0){ ?>
-					<option selected value="0">Не в проэкте</option>
-					<option value="1">в проэкте</option>
+					<option selected value="0">Не в проекте</option>
+					<option value="1">в проекте</option>
 				<? }else{
 					for($i = 0;$i<count($in_work);$i++)
 					{
 						if($row[0] == $in_work[$i]){?>
-							<option value="0">Не в проэкте</option>
-							<option selected value="1">в проэкте</option>
+							<option value="0">Не в проекте</option>
+							<option selected value="1">в проекте</option>
 						<? }else{?>
-							<option selected value="0">Не в проэкте</option>
-							<option value="1">в проэкте</option>
+							<option selected value="0">Не в проекте</option>
+							<option value="1">в проекте</option>
 				<?}}}?>
 			</select>
 			</div><br />
 			<? } ?>
 			<input type="hidden" name="id" value="<?echo $idprog;?>" />
 			<input type="hidden" name='count' value="<?echo $count;?>"/>
+			<br />
 			<input type="submit" value="Обновить" />
 		</form>
 		</div>
@@ -182,14 +183,31 @@ class Project
 	{
 		?><div class="help">
 		Примечание:
-		Менеджера поставить на проэкт можно после добавления самого проэкта.
+		Менеджера поставить на проэкт можно после добавления самого проекта.
 		</div>
 		<?
 	}
 	
 	public function scrits()
 	{
-		
+		?>
+		<script type="text/javascript">
+		function check(){
+
+			var start = $('#s').val().split(".");
+			var end = $('#e').val().split(".");
+			
+			var date1= new Date(start[2],start[1],start[0]);
+			var date2= new Date(end[2], end[1], end[0]);
+			if(date1 > date2)	
+				$('#e').val("");
+
+
+		}
+
+</script>
+
+		<?
 	}
 }
 ?>

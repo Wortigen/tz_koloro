@@ -51,6 +51,7 @@ class core
 					$this->content->show_project($_GET['idm']);
 					$this->content->work_managers($_GET['idm']);
 				}
+				$this->content->scrits();
 				$this->content->help();
 			break;
 			case 'list_Manager':

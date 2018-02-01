@@ -29,12 +29,13 @@
 		for($i = 0; $i < 1;$i++)
 		{
 			$p = explode(";",$param[$i]);
-			?><div>Проэкт:</div>
+			?><div>Проект:</div>
 			<div class="list_m">
-				Название : <? echo $p[0];?><br/>
-				Цена : <? echo $p[1];?><br/>
-				Начало : <? echo $p[2];?><br/>
-				Окончание : <? echo $p[3];?><br/>
+				id : <? echo $p[0];?><br/>
+				Название : <? echo $p[1];?><br/>
+				Цена : <? echo $p[2];?><br/>
+				Начало : <? echo $p[3];?><br/>
+				Окончание : <? echo $p[4];?><br/>
 				<hr width="100%" style="color:#fff" />
 			</div>
 			<?

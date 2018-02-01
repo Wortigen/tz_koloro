@@ -181,7 +181,7 @@ class Database{
 		$res = array();$temp = 0;
 		while($r = mysqli_fetch_row($result2))
 		{
-				$res[$temp] = $r[1].";".$r[2].";".$r[3].";".$r[4];
+				$res[$temp] = $r[0].";".$r[1].";".$r[2].";".$r[3].";".$r[4];
 				$temp++;
 		}
 		return $res;
@@ -234,13 +234,13 @@ class Database{
 	
 	public function get_projects_m($idp)
 	{
-		$qvery = 'SELECT `name`, `email`, `phone`, `company`, `photo` FROM `Manager` WHERE `id`='.$idp;
+		$qvery = 'SELECT `id`, `name`, `email`, `phone`, `company`, `photo` FROM `Manager` WHERE `id`='.$idp;
 		$result2 = mysqli_query($this->con, $qvery);
 		echo mysqli_error($this->con);
 		$res = array();$temp = 0;
 		while($r = mysqli_fetch_row($result2))
 		{
-				$res[$temp] = $r[0].";".$r[1].";".$r[2].";".$r[3].";".$r[4];
+				$res[$temp] = $r[0].";".$r[1].";".$r[2].";".$r[3].";".$r[4].";".$r[5];
 				$temp++;
 		}		
 		return $res;

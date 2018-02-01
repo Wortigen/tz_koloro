@@ -20,7 +20,7 @@ class Manager
 					Имя:
 				</div>
 				<div>
-				<input type="text" name='name' width="250px;" />
+				<input type="text" name='name' width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -28,7 +28,7 @@ class Manager
 					Email:
 				</div>
 				<div>
-				<input type="text" name="mail" width="250px;" />
+				<input type="text" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -36,7 +36,7 @@ class Manager
 					Телефон:
 				</div>
 				<div>
-				<input type="text" name="phone" width="250px;" />
+				<input type="text" name="phone" placeholder="###-##-##" pattern="/^0|[1-9]\d*$/" width="250px;" required />
 				</div>
 			</div>
 			<div class="form_line">
@@ -44,7 +44,7 @@ class Manager
 					Компания:
 				</div>
 				<div>
-				<input type="text" name="company" width="250px;" />
+				<input type="text" name="company" width="250px;" required />
 				</div>
 			</div>
 			<div class="end_line">

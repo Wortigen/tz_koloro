@@ -4,7 +4,7 @@
 	$project = $db->get_item_propery_m($_GET['idm']);
 ?>
 <div>
-	<p>Проэкт </p>
+	<p>Проект </p>
 	<? while ($row = mysqli_fetch_row($project)){?>
 	Название :<? echo $row[0]; ?><br/>
 	Цена :<? echo $row[1]; ?><br/>
@@ -21,16 +21,17 @@
 		$p = explode(";",$param[$i]);
 		?><div>Менеджера:</div>
 		<div class="list_p">
-				Имя : <? echo $p[0];?><br/>
-				email :<? echo $p[1];?><br/>
-				Телефон : <? echo $p[2];?><br/>
-				Компания : <? echo $p[3];?><br/>
-				<? if(trim($p[4]) == ''){ ?>
+				id : <? echo $p[0];?><br />
+				Имя : <? echo $p[1];?><br/>
+				email :<? echo $p[2];?><br/>
+				Телефон : <? echo $p[3];?><br/>
+				Компания : <? echo $p[4];?><br/>
+				<? if(trim($p[5]) == ''){ ?>
 					<img width="150px" height="150px" src="photo/default.jpg" />
 				<? } else
 				{
 				?>
-					<img width="150px" height="150px" src="<? echo $p[4];?>" />
+					<img width="150px" height="150px" src="<? echo $p[5];?>" />
 				<?
 				}
 	}?>

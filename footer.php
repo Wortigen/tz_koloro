@@ -1,7 +1,4 @@
 
-<div class="footer">
-<div> <? echo 'footer';?></div> 
-</div>
 <? if($site->title != "Menu")
 {
 ?>
