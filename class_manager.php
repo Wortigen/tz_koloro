@@ -98,7 +98,19 @@ class Manager
 	
 	public function photo_setting($idm)
 	{
-		
+		//$result = $this->db->manager_list();
+		//$count = mysqli_num_rows($result);
+		//$in_work = $this->db->chekM($idprog);
+		?>
+		<div class="worker">
+		<form enctype="multipart/form-data" action="upload.php?idm=<? echo $_GET['idm'];?>" method="POST">
+		<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+		<input type="hidden" name="id" value="<? echo $_GET['idm'];?>"/>
+		Отправить это фото: <input name="userfile" type="file" />
+		<input type="submit" value="Send File" />
+		</form>
+		</div>
+		<?
 	}
 	
 	public function show_manager($manager)

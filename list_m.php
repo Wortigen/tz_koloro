@@ -12,7 +12,14 @@
 	Компания :<? echo $row[4]; ?><br/>
 	<? if(trim($row[5]) == ''){ ?>
 		<img width="150px" height="150px" src="photo/default.jpg" />
-	<? }}?>
+	<? } else
+	{
+		?>
+			<img width="150px" height="150px" src="<? echo $row[5];?>" />
+		<?
+	}
+	
+	}?>
 </div>
 <hr width="100%" style="color:#fff" />
 <? $projects = $db->get_item_project($_GET['idm']);

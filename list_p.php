@@ -27,7 +27,13 @@
 				Компания : <? echo $p[3];?><br/>
 				<? if(trim($p[4]) == ''){ ?>
 					<img width="150px" height="150px" src="photo/default.jpg" />
-				<? }}?>
+				<? } else
+				{
+				?>
+					<img width="150px" height="150px" src="<? echo $p[4];?>" />
+				<?
+				}
+	}?>
 			<hr width="100%" style="color:#fff" />
 			</div>
 			<?

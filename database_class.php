@@ -24,6 +24,16 @@ class Database{
 		echo mysqli_error($this->con);
 	}
 	
+	public function set_photo($id,$path)
+	{
+		$result = false;
+		echo $id.":".$path;
+		$qvery = 'UPDATE `Manager` SET `photo` ="'.$path.'" WHERE `id`="'.$id.'"';
+		$result = mysqli_query($this->con, $qvery);
+		echo mysqli_error($this->con);
+		return $result;
+	}
+	
 	public function get_manager($id_manager)
 	{
 		$result = false;
